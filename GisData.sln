@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grabber", "GisData\Grabber.csproj", "{52B1771E-7A8B-4133-8E03-742C19C9B54C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52B1771E-7A8B-4133-8E03-742C19C9B54C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52B1771E-7A8B-4133-8E03-742C19C9B54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52B1771E-7A8B-4133-8E03-742C19C9B54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52B1771E-7A8B-4133-8E03-742C19C9B54C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A27414E9-C2DC-484D-B298-B0FF1506F9AC}
+	EndGlobalSection
+EndGlobal
