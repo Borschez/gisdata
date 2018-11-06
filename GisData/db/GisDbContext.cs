@@ -14,7 +14,7 @@ namespace GisData.db
         public DbSet<City> Cities { get; set; }
         public DbSet<Prognosis> Prognoses { get; set; }
 
-        public GisDbContext() : base("gisDbContext")
+        public GisDbContext(string context) : base(context)
         {
 
         }
@@ -36,7 +36,8 @@ namespace GisData.db
         public float Comfort_temp { get; set; }
         public float Water_temp { get; set; }
         public float Humidity { get; set; }
-        public float Pressure { get; set; }        
+        public float Pressure { get; set; }   
+        public DateTime Date { get; set; }
     }
 
 }

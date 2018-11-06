@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using GisData.db;
+using System.Configuration;
 
 namespace GisData
 {
@@ -13,21 +9,23 @@ namespace GisData
         static void Main(string[] args)
         {
             GisService gisService = new GisService();
-            gisService.getLocalData(); //Загружаем данные   
-            
-            GisDbContext gisDbContext = new GisDbContext();
+            gisService.GetLocalData(); //Загружаем данные   
+
+            string dbContext = ConfigurationManager.AppSettings.Get("db.context");
+            GisDbContext gisDbContext = new GisDbContext(dbContext);// подключаемся к БД
 
             CityService cityService = new CityService(gisDbContext);
+            PrognosisService prognosisService = new PrognosisService(gisDbContext);
             
             foreach (KeyValuePair<long, string> city in gisService.Cities)
             {   
                 if (cityService.FindByName(city.Value) == null){
                     City cityObj = cityService.CreateCity(city.Key, city.Value);
-                    cityService.AddCity(cityObj);
-                }                
+                    cityService.AddCity(cityObj);                    
+                }
+                Prognosis prognosis = PrognosisService.ParsePrognosis(city.Key, gisService.GetPrognosisData(city.Key));
+                prognosisService.AddPrognosis(prognosis);
             }
-
-            //Debug.Write(gisService.GismeteoData);
         }
     }
 }

@@ -11,8 +11,10 @@ namespace GisData
 {
     public class GisService
     {
-        private String _gisMeteoLocal = ConfigurationManager.AppSettings.Get("gismeteo.local");
-        private String _gisMeteoData = null;        
+        public readonly string prognosisApiUrl = "https://api.gismeteo.ru/v2/weather/forecast/aggregate/{0}/?days=3";
+        public readonly string gisToken = ConfigurationManager.AppSettings.Get("gismeteo.token");
+        private string _gisMeteoLocal = ConfigurationManager.AppSettings.Get("gismeteo.local");
+        private string _gisMeteoData = null;        
         private Dictionary<long, String> _cities = null;        
 
         public String GismeteoURL { get; } = ConfigurationManager.AppSettings.Get("gismeteo.url");
@@ -31,7 +33,7 @@ namespace GisData
             {
                 if (_cities == null)
                 {
-                    parseHtml();
+                    ParseHtml();
                 }                
                 return _cities;
             }
@@ -42,7 +44,7 @@ namespace GisData
 
         }
 
-        public void getLocalData()
+        public void GetLocalData()
         {
             try
             {   // Open the text file using a stream reader.
@@ -60,7 +62,7 @@ namespace GisData
             }            
         }
 
-        private void parseHtml()
+        private void ParseHtml()
         {
             var doc = new HtmlDocument();
             doc.LoadHtml(_gisMeteoData);
@@ -78,12 +80,44 @@ namespace GisData
         }
 
 
-        public void getData()
+        public void GetData()
         {
             HtmlWeb web = new HtmlWeb();
             HtmlDocument doc = web.Load(GismeteoURL);
             _gisMeteoData = doc.DocumentNode.InnerHtml;
         }
-         
+                
+        public string GetPrognosisData(long cityId)
+        {
+            string urlAddress = String.Format(prognosisApiUrl, cityId);
+                        
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(urlAddress);
+            request.Headers.Add("X-Gismeteo-Token", gisToken);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Stream receiveStream = response.GetResponseStream();
+                StreamReader readStream = null;
+
+                if (response.CharacterSet == null)
+                {
+                    readStream = new StreamReader(receiveStream);
+                }
+                else
+                {
+                    readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
+                }
+
+                string data = readStream.ReadToEnd();
+
+                response.Close();
+                readStream.Close();
+
+                return data;
+            }
+
+            return null;
+        }         
     }
 }

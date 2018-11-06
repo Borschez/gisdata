@@ -33,17 +33,7 @@ namespace GisData.db
 
             return city;
         }
-
-        public bool IsCityExist(City city)
-        {
-
-            var queryLondonCustomers = from cityT in _gisDbContext.Cities
-                                       where city.Name == "Москва"
-                                       select cityT;
-            
-            return _gisDbContext.Entry(city).State == System.Data.Entity.EntityState.Unchanged;
-        }
-
+        
         public City FindByName(string name)
         {
             var result = _gisDbContext.Cities.Where(x => x.Name == name).FirstOrDefault();
