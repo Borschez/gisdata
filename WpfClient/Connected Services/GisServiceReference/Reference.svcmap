@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="66857110-e9dc-4b74-8c6b-f2122ee8375e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:58773/GisService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="GisService.xsd" MetadataType="Schema" ID="132e5971-2410-4d82-b1e7-7245b0e408ca" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?xsd=xsd0" />
+    <MetadataFile FileName="GisService1.xsd" MetadataType="Schema" ID="6874125c-077c-4dde-9d5f-f84403acfc54" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?xsd=xsd1" />
+    <MetadataFile FileName="GisService.wsdl" MetadataType="Wsdl" ID="e5e25e7a-31f4-4a96-81a8-6ace80d612ad" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?wsdl" />
+    <MetadataFile FileName="GisService2.xsd" MetadataType="Schema" ID="62db6e7a-ce2f-4467-bffe-846b75d08703" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GisService.disco" MetadataType="Disco" ID="c14740bc-bcbf-4c49-8f21-2ae0b5918b0e" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
