@@ -2,10 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace GisData.db
 {
-    class PrognosisService
+    public class PrognosisService
     {
         private GisDbContext _gisDbContext = null;
 
@@ -50,7 +52,7 @@ namespace GisData.db
 
         public List<Prognosis> GetPrognosesByCity(long cityId)
         {
-            return _gisDbContext.Prognoses.Where(x => x.City_Id == cityId).ToList();            
+            return _gisDbContext.Prognoses.Where(x => x.City_Id == cityId).ToList();
         }
     }
 }

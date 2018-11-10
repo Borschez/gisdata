@@ -17,12 +17,12 @@ namespace GisData.db
 
         public City AddCity(City city)
         {
-            City result = _gisDbContext.Cities.Add(city);            
+            City result = _gisDbContext.Cities.Add(city);
             _gisDbContext.SaveChanges();
 
             return result;
         }
-        
+
         public City CreateCity(long gis_id, string name)
         {
             City city = new City
@@ -33,12 +33,17 @@ namespace GisData.db
 
             return city;
         }
-        
+
         public City FindByName(string name)
         {
             var result = _gisDbContext.Cities.Where(x => x.Name == name).FirstOrDefault();
-            
+
             return result;
+        }
+
+        public List<City> GetAllCities()
+        {
+            return _gisDbContext.Cities.ToList();
         }
     }
 }

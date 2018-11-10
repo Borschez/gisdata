@@ -7,9 +7,6 @@
         xmlns:db="clr-namespace:GisData.db;assembly=GisWcfService" x:Class="WpfClient.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <ComboBox HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="120">
-        <ComboBox.DataContext>
-            <db:City/>
-        </ComboBox.DataContext>
+    <ComboBox HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Width="120">        
     </ComboBox>
 </Window>
