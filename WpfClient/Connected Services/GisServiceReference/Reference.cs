@@ -284,6 +284,12 @@ namespace WpfClient.GisServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGisService/GetPrognosesByCity", ReplyAction="http://tempuri.org/IGisService/GetPrognosesByCityResponse")]
         System.Threading.Tasks.Task<WpfClient.GisServiceReference.Prognosis[]> GetPrognosesByCityAsync(long cityId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGisService/GetLatestPrognosisByCity", ReplyAction="http://tempuri.org/IGisService/GetLatestPrognosisByCityResponse")]
+        WpfClient.GisServiceReference.Prognosis GetLatestPrognosisByCity(long cityId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGisService/GetLatestPrognosisByCity", ReplyAction="http://tempuri.org/IGisService/GetLatestPrognosisByCityResponse")]
+        System.Threading.Tasks.Task<WpfClient.GisServiceReference.Prognosis> GetLatestPrognosisByCityAsync(long cityId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -335,6 +341,14 @@ namespace WpfClient.GisServiceReference {
         
         public System.Threading.Tasks.Task<WpfClient.GisServiceReference.Prognosis[]> GetPrognosesByCityAsync(long cityId) {
             return base.Channel.GetPrognosesByCityAsync(cityId);
+        }
+        
+        public WpfClient.GisServiceReference.Prognosis GetLatestPrognosisByCity(long cityId) {
+            return base.Channel.GetLatestPrognosisByCity(cityId);
+        }
+        
+        public System.Threading.Tasks.Task<WpfClient.GisServiceReference.Prognosis> GetLatestPrognosisByCityAsync(long cityId) {
+            return base.Channel.GetLatestPrognosisByCityAsync(cityId);
         }
     }
 }

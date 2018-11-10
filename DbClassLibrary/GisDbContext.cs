@@ -1,6 +1,7 @@
 ﻿using MySql.Data.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -13,13 +14,11 @@ namespace GisData.db
     {
         public DbSet<City> Cities { get; set; }
         public DbSet<Prognosis> Prognoses { get; set; }
-
-        public GisDbContext(string context) : base(context)
-        {
-
-        }
+        public GisDbContext(string context) : base(context) { }        
+        
     }
 
+    [Table("cities")]
     public class City 
     {
         public long Id { get; set; }
@@ -27,6 +26,7 @@ namespace GisData.db
         public string Name { get; set; }
     }
 
+    [Table("prognoses")]
     public class Prognosis
     {
         public long Id { get; set; }

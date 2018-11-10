@@ -54,5 +54,11 @@ namespace GisData.db
         {
             return _gisDbContext.Prognoses.Where(x => x.City_Id == cityId).ToList();
         }
+
+        public Prognosis GetLatestPrognosisByCity(long cityId)
+        {
+            return _gisDbContext.Prognoses.Where(x => x.City_Id == cityId 
+                    && x.Date == _gisDbContext.Prognoses.Where(z => z.City_Id == cityId).Max(e => e.Date)).FirstOrDefault();
+        }
     }
 }

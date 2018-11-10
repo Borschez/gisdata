@@ -43,6 +43,7 @@ namespace GisData.db
 
         public List<City> GetAllCities()
         {
+            City temp =_gisDbContext.Cities.Find(344);
             return _gisDbContext.Cities.ToList();
         }
     }

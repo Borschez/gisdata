@@ -16,15 +16,16 @@ namespace GisWcfService
     {
         private string dbContext;
         private GisDbContext gisDbContext;
-        private CityService cityService; 
+        private CityService cityService;
+        private PrognosisService prognosisService;
 
 
         public GisService() : base()
         {
             dbContext = ConfigurationManager.AppSettings.Get("db.context");
-            gisDbContext = new GisDbContext(dbContext);
+            gisDbContext = new GisDbContext(dbContext);            
             cityService = new CityService(gisDbContext);
-
+            prognosisService = new PrognosisService(gisDbContext);
         }
 
         public List<City> GetAllCities()
@@ -34,12 +35,17 @@ namespace GisWcfService
 
         public List<Prognosis> GetAllPrognoses()
         {
-            throw new NotImplementedException();
+            return prognosisService.GetAllPrognoses();
+        }
+
+        public Prognosis GetLatestPrognosisByCity(long cityId)
+        {
+            return prognosisService.GetLatestPrognosisByCity(cityId);
         }
 
         public List<Prognosis> GetPrognosesByCity(long cityId)
         {
-            throw new NotImplementedException();
+            return prognosisService.GetPrognosesByCity(cityId);
         }
     }
 }

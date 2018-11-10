@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="66857110-e9dc-4b74-8c6b-f2122ee8375e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ca56eaef-570e-469b-97c1-3f58efa93d28" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:58773/GisService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GisService.xsd" MetadataType="Schema" ID="132e5971-2410-4d82-b1e7-7245b0e408ca" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?xsd=xsd0" />
-    <MetadataFile FileName="GisService1.xsd" MetadataType="Schema" ID="6874125c-077c-4dde-9d5f-f84403acfc54" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?xsd=xsd1" />
-    <MetadataFile FileName="GisService.wsdl" MetadataType="Wsdl" ID="e5e25e7a-31f4-4a96-81a8-6ace80d612ad" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?wsdl" />
-    <MetadataFile FileName="GisService2.xsd" MetadataType="Schema" ID="62db6e7a-ce2f-4467-bffe-846b75d08703" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?xsd=xsd2" />
-    <MetadataFile FileName="GisService.disco" MetadataType="Disco" ID="c14740bc-bcbf-4c49-8f21-2ae0b5918b0e" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?disco" />
+    <MetadataFile FileName="GisService.xsd" MetadataType="Schema" ID="b920c17b-19f9-4437-93d2-5c468a285244" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?xsd=xsd0" />
+    <MetadataFile FileName="GisService1.xsd" MetadataType="Schema" ID="f0e6b96b-d907-4cd9-b365-7756072c2ecc" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?xsd=xsd1" />
+    <MetadataFile FileName="GisService.wsdl" MetadataType="Wsdl" ID="283a225d-7261-49c8-960f-2f517e169853" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?wsdl" />
+    <MetadataFile FileName="GisService2.xsd" MetadataType="Schema" ID="d9fb1dae-da89-46eb-adf9-6826208daa87" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?xsd=xsd2" />
+    <MetadataFile FileName="GisService.disco" MetadataType="Disco" ID="878a2a81-5379-4a0f-907b-767700c3fc99" SourceId="1" SourceUrl="http://localhost:58773/GisService.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

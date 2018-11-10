@@ -25,6 +25,12 @@
   <wsdl:message name="IGisService_GetPrognosesByCity_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPrognosesByCityResponse" />
   </wsdl:message>
+  <wsdl:message name="IGisService_GetLatestPrognosisByCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestPrognosisByCity" />
+  </wsdl:message>
+  <wsdl:message name="IGisService_GetLatestPrognosisByCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestPrognosisByCityResponse" />
+  </wsdl:message>
   <wsdl:portType name="IGisService">
     <wsdl:operation name="GetAllCities">
       <wsdl:input wsaw:Action="http://tempuri.org/IGisService/GetAllCities" message="tns:IGisService_GetAllCities_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="GetPrognosesByCity">
       <wsdl:input wsaw:Action="http://tempuri.org/IGisService/GetPrognosesByCity" message="tns:IGisService_GetPrognosesByCity_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IGisService/GetPrognosesByCityResponse" message="tns:IGisService_GetPrognosesByCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPrognosisByCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IGisService/GetLatestPrognosisByCity" message="tns:IGisService_GetLatestPrognosisByCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IGisService/GetLatestPrognosisByCityResponse" message="tns:IGisService_GetLatestPrognosisByCity_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IGisService" type="tns:IGisService">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetPrognosesByCity">
       <soap:operation soapAction="http://tempuri.org/IGisService/GetPrognosesByCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestPrognosisByCity">
+      <soap:operation soapAction="http://tempuri.org/IGisService/GetLatestPrognosisByCity" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

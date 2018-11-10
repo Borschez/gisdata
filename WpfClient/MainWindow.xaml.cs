@@ -20,9 +20,58 @@ namespace WpfClient
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GisServiceReference.GisServiceClient gisServiceClient = null;
+
+        private GisServiceReference.Prognosis currentPrognosis = null;
+
+        public GisServiceReference.Prognosis CurrentPrognosis
+        {
+            get { return currentPrognosis; }
+            set {
+                if (value != null)
+                {
+                    currentPrognosis = value;
+                    SetPrognosisData();
+                }
+                else
+                {
+                    throw new NullReferenceException();
+                }
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            gisServiceClient = new GisServiceReference.GisServiceClient();
+            List<GisServiceReference.City> cities = gisServiceClient.GetAllCities().ToList();
+            citiesComboBox.ItemsSource = cities;
+            citiesComboBox.DisplayMemberPath = "Name";            
+        }
+
+        private void citiesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                GisServiceReference.City sel = (GisServiceReference.City)(sender as ComboBox).SelectedValue;
+                CurrentPrognosis = gisServiceClient.GetLatestPrognosisByCity(sel.Id);
+            }catch(NullReferenceException ex)
+            {
+                MessageBox.Show("Прогноз не найден!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void SetPrognosisData()
+        {
+            tempLabel.Content = currentPrognosis.Air_temp;
+            humLabel.Content = currentPrognosis.Humidity;
+            descLabel.Content = currentPrognosis.Description;
+            pressureLabel.Content = currentPrognosis.Pressure;
+            dateLabel.Content = currentPrognosis.Date;
         }
     }
 }

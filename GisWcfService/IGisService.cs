@@ -22,6 +22,8 @@ namespace GisWcfService
         [OperationContract]
         List<Prognosis> GetPrognosesByCity(long cityId);
 
+        [OperationContract]
+        Prognosis GetLatestPrognosisByCity(long cityId);
         // TODO: Add your service operations here
     }
     
